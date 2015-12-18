@@ -1,0 +1,141 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Acrolinx TuningService 
+
+TuningService is an API allowing an Acrolinx coworker to tune words.
+
+### Create a New TuningWord [POST]
+
+Create a new TuningWord
+
++ Request (application/vnd.api+json)
+
+    + Schema
+    
+            {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "pattern": "tuning\\-words"
+                                },
+                                "attributes": {
+                                    "type": "object",
+                                    "properties": {
+                                        "text": {
+                                            "type": "string"
+                                        },
+                                        "confirmed": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "relationships": {
+                                    "type": "object",
+                                    "properties": {
+                                        "tuning-proposal": {
+                                        "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string",
+                                                            "pattern": "tuning\\-proposals"
+                                                    },
+                                                    "id": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "data"
+                ]
+           }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /tuning-service/api/v1/tuning-words/{id}
+
+    + Schema
+
+            {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "pattern": "tuning\\-words"
+                                },
+                                "attributes": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id:": {
+                                            "type": "string"
+                                        }
+                                        "text": {
+                                            "type": "string"
+                                        },
+                                        "confirmed": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "relationships": {
+                                    "type": "object",
+                                    "properties": {
+                                        "tuning-proposal": {
+                                        "type": "object",
+                                            "properties": {
+                                                "data": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string",
+                                                            "pattern": "tuning\\-proposals"
+                                                    },
+                                                    "id": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "data"
+                ]
+           }
