@@ -5,6 +5,8 @@ HOST: http://polls.apiblueprint.org/
 
 TuningService is an API allowing an Acrolinx coworker to tune words.
 
+## TuningWords Collection [/tuning-words]
+
 ### Create a New TuningWord [POST]
 
 Create a new TuningWord
@@ -69,13 +71,13 @@ Create a new TuningWord
                 "required": [
                     "data"
                 ]
-           }
+            }
 
 + Response 201 (application/json)
 
     + Headers
 
-            Location: /tuning-service/api/v1/tuning-words/{id}
+            Location: /tuning-service/api/v1/tuning-words/{:id}
 
     + Schema
 
@@ -138,4 +140,5 @@ Create a new TuningWord
                 "required": [
                     "data"
                 ]
-           }
+            }
+        
